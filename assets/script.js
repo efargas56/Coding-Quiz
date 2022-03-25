@@ -1,4 +1,5 @@
-// variable decleration starts here //
+//JS Code starts here //
+// quiz questions // 
 var quizQuestions= [
     {
       prompt: "what is the correct way to write a function",
@@ -32,6 +33,7 @@ var quizQuestions= [
     },
     
   ]
+// variables used in JS and references to the HTML IDs here //
 var start = document.getElementById('start-button'); 
 var questionsPrompt = document.getElementById("quizQuestions");
 var timerEl = document.getElementById('timer');
@@ -54,13 +56,14 @@ var questionAnswerElements = [
 var time = 45;
 var quizQuestionIndex = 0;
 var score = 0;
-  
+// function which pulls the question from the html and updates it on the webpage using javascript //
 function questionsList(question){
    questionsPrompt.textContent = question.prompt;
 for (var i=0; i <question.answers.length; i++) {
     questionAnswerElements[i].textContent = question.answers[i]
 }
 }
+// function that reacts when clicking answers will react different depending on if the answer is right or wrong //
 function questionAnswerClickHandler(event) {
     var answerClicked = event.target;
     var answerIndex = answerClicked.getAttribute('data-index');
@@ -76,7 +79,7 @@ function questionAnswerClickHandler(event) {
     questionsList(quizQuestions[quizQuestionIndex]);
     }
   }
-  
+// functions to determine what to do if you answer correctly or incorrectly //
   function answeredQuestionCorrectly() {
     score += 10;
     scoreEl.textContent = score;
@@ -85,7 +88,7 @@ function questionAnswerClickHandler(event) {
   function answeredQuestionIncorrectly() {
     time -= 10;
   }
-  
+// function which starts quiz when the start button is pressed //
   function startQuiz() {
     var timerInterval = setInterval(function() {
       time--;
@@ -97,18 +100,18 @@ function questionAnswerClickHandler(event) {
         timerEl.textContent = time;
       }
     }, 1000)
+// function that will display once the user has answered all the questions or time has run out //
     function endGame() {
-        console.log("congrats you have completed the quiz please submit your initials and your score will be logged.")
+    window.alert("congrats you have completed the quiz, please submit your initials and your score will be logged.")
       }
   
     questionsList(quizQuestions[quizQuestionIndex]);
   }
-   
+// function which takes users intials and stores score and intials in local storage //
   function submitScore() {
     var userInitials = userInitialsInput.value;
     localStorage.setItem(userInitials, score);
   }
-  
   function setUpClickListeners() {
     for (var i = 0; i < questionAnswerElements.length; i++) {
      questionAnswerElements[i].addEventListener('click', questionAnswerClickHandler);
@@ -116,5 +119,6 @@ function questionAnswerClickHandler(event) {
   }
 
   setUpClickListeners();
+// event listeners listenng for a click on the start and for the submit button
 start.addEventListener('click', startQuiz);
 submitButton.addEventListener('click', submitScore);
