@@ -1,42 +1,33 @@
 var quizQuestions= [
     {
-      Question: "what is the correct way to write a function",
+      prompt: "what is the correct way to write a function",
       answers: [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
-      correctAnswerIndex: 3
-    },
-    {
-      Question: "how do you save a users input?",
-      answers: [
-        "6",
-        "2",
-        "3",
-        "4"
-      ],
-      correctAnswerIndex: 3
-    },
-    {
-      Question: "what is the correct way to write a for loop",
-      answers: [
-        "1",
-        "8",
-        "3",
-        "4"
+        "pizza(){     }",
+        "function pizza() {     }",
+        "function pizza{     }",
+        "pizza{     }"
       ],
       correctAnswerIndex: 1
     },
     {
-    Question: "how many times can you call a function?",
-    answers: [
-        "once",
-        "twice",
-        "as many times as you like",
-        "never"
-    ],
-    correctAnswerIndex: 2
-    }
+      prompt: "how do you save a users input?",
+      answers: [
+        "Create a folder that stores every input logged in the console by users",
+        "Use the .saveuserinput command to store user information",
+        "You cannot save users inputs",
+        "Create a function that uses a variable to log userinputs"
+      ],
+      correctAnswerIndex: 3
+    },
+    {
+      prompt: "what is the correct way to write a for loop",
+      answers: [
+        "for = loop",
+        "function for(){      }",
+        "for( let i=0; i < var.length; i++",
+        "for( let i=1; i < var.answer; i++"
+      ],
+      correctAnswerIndex: 2
+    },
+    
   ]
