@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--beginning of HTML-->
+<html lang="en">
+ <!--Head of HTML-->
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JavaScript Quiz</title>
+
+    <link rel="stylesheet" href="./assets/styles.css" />
+ </head>
+  
+ <body>
+    <h1>JavaScript Coding Quiz!</h1>
+<!--Start button in HTML-->
+    <button id="start-button">Start</button>
+<!--Score tracker-->
+    <h3>Current Score</h3>
+    <h4 id="score">0</h4> 
+<!--Questions box-->
+    <div id="question-container">
+      <h3 id="quizQuestions">Questions asked go here</h3>
+      <ul>
+        <li data-index="0" id="question-0">Answer 1</li>
+        <li data-index="1" id="question-1">Answer 2</li>
+        <li data-index="2" id="question-2">Answer 3</li>
+        <li data-index="3" id="question-3">Answer 4</li>
+      </ul>
+    </div>
+<!--Quiz timer-->
+    <div id="timer-container">
+        <h2>Time Remaining:</h2>
+        <h3 id="timer">45</h3>
+    </div>
+<!--user intial submission-->
+    <div id="submit-container" >
+      <h2>Once you have completed the quiz, submit your score below!</h2>
+      <input id="user-initials">
+      <button id="submit-initials">Submit</button>
+    </div>
+<!--JS scripts-->
+    <script src="./assets/JavaScript/script.js"></script>
+    <script src="./assets/JavaScript/quiz.js"></script>
+ </body>
+</html>
