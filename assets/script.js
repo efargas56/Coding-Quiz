@@ -1,3 +1,4 @@
+// variable decleration starts here //
 var quizQuestions= [
     {
       Question: "what is the correct way to write a function",
@@ -40,12 +41,6 @@ var quizQuestions= [
     correctAnswerIndex: 2
     }
   ]
-var questionAnswerElements = [
-    questionAnswer0,
-    questionAnswer1,
-    questionAnswer2,
-    questionAnswer3
-  ]
 var start = document.getElementById('start-button'); 
 var questionsPrompt = document.getElementById("quizQuestions");
 var timerEl = document.getElementById('timer');
@@ -59,30 +54,35 @@ var timerContainer = document.getElementById('timer-container');
 var userInitialsInput = document.getElementById('user-initials');
 var submitButton = document.getElementById('submit-initials');
 var submitContainer = document.getElementById('submit-container');
-
+var questionAnswerElements = [
+    questionAnswer0,
+    questionAnswer1,
+    questionAnswer2,
+    questionAnswer3
+  ]
 var time = 90;
-var questionIndex = 0;
+var quizQuestionIndex = 0;
 var score = 0;
   
-function questionslist(Question){
-    Question.textContent = quizQuestions.prompt;
-for (var i=0; i <quizQuestions.answers.length; i++){
-    questionAnswerElements[i].textContent = quizQuestions.answers[i]
+function questionsList(question){
+   questionsPrompt.textContent = question.prompt;
+for (var i=0; i <question.answers.length; i++) {
+    questionAnswerElements[i].textContent = question.answers[i]
 }
 }
 function questionAnswerClickHandler(event) {
     var answerClicked = event.target;
     var answerIndex = answerClicked.getAttribute('data-index');
-    if (answerIndex == quizQuestions[questionIndex].correctAnswerIndex) {
+    if (answerIndex == quizQuestions[quizQuestionIndex].correctAnswerIndex) {
       answeredQuestionCorrectly()
     } else {
       answeredQuestionIncorrectly()
     }
-    questionIndex++;
-    if (questionIndex >= questions.length) {
+    quizQuestionIndex++;
+    if (quizQuestionIndex >= quizQuestions.length) {
       time = 0;
     } else {
-      loadQuestion(questions[questionIndex]);
+     questionList(quizQuestions[quizQuestionIndex]);
     }
   }
   
@@ -106,8 +106,11 @@ function questionAnswerClickHandler(event) {
         timerEl.textContent = time;
       }
     }, 1000)
+    function endGame() {
+        console.log("congrats you have completed the quiz please submit your initials and your score will be logged.")
+      }
   
-    loadQuestion(questions[questionIndex]);
+    questionsList(quizQuestions[quizQuestionIndex]);
   }
    
   function submitScore() {
