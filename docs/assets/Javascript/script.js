@@ -81,12 +81,12 @@ function questionAnswerClickHandler(event) {
   }
 // functions to determine what to do if you answer correctly or incorrectly //
   function answeredQuestionCorrectly() {
-    score += 10;
+    score += 33;
     scoreEl.textContent = score;
   }
   
   function answeredQuestionIncorrectly() {
-    time -= 10;
+    time -= 15;
   }
 // function which starts quiz when the start button is pressed //
   function startQuiz() {
